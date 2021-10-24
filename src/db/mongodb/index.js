@@ -9,13 +9,11 @@ class MongoDB{
     this._db = mongoose;
   }
   setup(){
-    console.log("connecting to "+this._uri)
     this.connect();
     this.registerEvents();
   }
 
   connect(){
-    console.log("trying to connect with "+this._uri+" "+ this._connectionParams)
     this._db
       .connect(this._uri, this._connectionParams)
       .then(()=>console.log("db connected"))

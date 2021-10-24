@@ -7,7 +7,6 @@ class Redis{
   }
 
   setup(){
-    console.log("connecting to redis")
     this.connect()
   }
 
@@ -17,7 +16,6 @@ class Redis{
   }
 
   registerEvents(){
-    console.log("trying to connect with "+this._uri+" "+ this._connectionParams)
     this.client
       .on('error', err=>console.log('Error ' + err));
     this.client
