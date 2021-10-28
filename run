@@ -4,9 +4,12 @@ echo "runniing"
 export NODE_PATH=$PWD
 source settings.env
 
+
+
 if [ "$1" = "d" ]
 then 
   nodemon server/index.js
 else
+  mkdir $PWD/log
   node server
 fi
