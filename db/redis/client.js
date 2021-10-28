@@ -5,4 +5,4 @@ const redis = new Redis({host: env.REDIS_HOST, port: env.REDIS_PORT, password: e
 redis.setup()
 const client = redis.getClient()
 
-exports.default = client
+module.exports = client

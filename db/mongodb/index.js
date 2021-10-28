@@ -31,7 +31,7 @@ class MongoDB{
     this.connection()
       .on('error', (err)=>console.log("db::error", err))
     this.connection()
-      .on('disconnected', ()=>console.log("db::disconnected"))
+      .on('disconnected', ()=>console.log("\ndb::disconnected"))
     process.on('SIGINT',()=> this.close())
   }
 

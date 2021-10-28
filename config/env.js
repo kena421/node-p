@@ -5,6 +5,7 @@ const DEFAULT_REDIS_HOST = 'redis-12240.c264.ap-south-1-1.ec2.cloud.redislabs.co
 const DEFAULT_REDIS_PORT = '12240';
 const DEFAULT_REDIS_PASSWORD = 'gZyqnN2vwsjPbewPQ74o90socF0UDq88'
 const DEFAULT_PORT = 3000
+
 module.exports = {
   PORT: env.PORT || DEFAULT_PORT,
   MONGODB_URI: env.MONGODB_URI || DEFAULT_MONGODB_URI,

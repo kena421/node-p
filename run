@@ -1,6 +1,7 @@
 #!/bin/bash
 
 echo "runniing"
+export NODE_PATH=$PWD
 source settings.env
 
-node src
+nodemon server/index.js
