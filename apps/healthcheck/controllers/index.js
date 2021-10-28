@@ -1,11 +1,11 @@
 class HealthCheckController{
 
   ping(req, res){
-    res.status(200).send('pong');
+    res.status(200).json({reply: 'pong'});
   }
   
   healthcheck(req, res){
-    res.send('healthcheck success');
+    res.json({healthcheck: 'success'});
   }
 }
 
