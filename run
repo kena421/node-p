@@ -1,9 +1,8 @@
 #!/bin/bash
 
 echo "runniing"
-export NODE_PATH=$PWD
-echo "value of NODE_PATH=$NODE_PATH"
 source settings.env
+echo "value of NODE_PATH=$NODE_PATH"
 
 
 if [ "$1" = "s" ]
