@@ -5,11 +5,15 @@ export NODE_PATH=$PWD
 source settings.env
 
 
-
-if [ "$1" = "d" ]
-then 
-  nodemon server/index.js
+if [ "$1" = "s" ]
+then
+  echo "skipping run"
 else
-  mkdir $PWD/log
-  node server
+  if [ "$1" = "d" ]
+  then 
+    nodemon server/index.js
+  else
+    node server
+  fi
+
 fi
