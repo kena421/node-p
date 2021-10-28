@@ -4,4 +4,9 @@ echo "runniing"
 export NODE_PATH=$PWD
 source settings.env
 
-nodemon server/index.js
+if [ "$1" = "d" ]
+then 
+  nodemon server/index.js
+else
+  node server
+fi
