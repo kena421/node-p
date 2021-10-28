@@ -1,2 +1,1 @@
-release: bash ./run s
-web: node server
+web: bash ./run
