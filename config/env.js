@@ -13,5 +13,9 @@ module.exports = {
   REDIS_PORT: env.REDIS_PORT || DEFAULT_REDIS_PORT,
   REDIS_PASSWORD: env.REDIS_PASSWORD || DEFAULT_REDIS_PASSWORD,
   NODE_ENV: env.NODE_ENV || "dev",
-  FORCE_CONSOLE_LOG: env.FORCE_CONSOLE_LOG || true
+  FORCE_CONSOLE_LOG: env.FORCE_CONSOLE_LOG || true,
+
+  // environment only
+  NODE_PATH: env.NODE_PATH,
+  PING: env.PING,
 }

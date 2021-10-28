@@ -7,6 +7,11 @@ class HealthCheckController{
   healthcheck(req, res){
     res.json({healthcheck: 'success'});
   }
+
+  getConfig(req, res){
+    const env = require('config/env')
+    res.status(200).json(env);
+  }
 }
 
 
