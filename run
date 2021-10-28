@@ -2,6 +2,7 @@
 
 echo "runniing"
 export NODE_PATH=$PWD
+echo "value of NODE_PATH=$NODE_PATH"
 source settings.env
 
 
