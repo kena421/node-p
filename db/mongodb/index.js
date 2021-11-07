@@ -1,5 +1,6 @@
-const env = require('../../config/env')
-const mongoose = require('mongoose')
+const env = require('config/env')
+const mongoose = require('mongoose');
+const logger = require('lib/logger');
 
 class MongoDB{
 
@@ -7,6 +8,7 @@ class MongoDB{
     this._uri = uri;
     this._connectionParams = connectionParams;
     this._db = mongoose;
+    this.logger = logger
   }
   setup(){
     this.connect();
@@ -16,8 +18,8 @@ class MongoDB{
   connect(){
     this._db
       .connect(this._uri, this._connectionParams)
-      .then(()=>console.log("db connected"))
-      .catch(()=>console.log("Error Connecting"))
+      .then(()=>this.logger.info("db connected"))
+      .catch(()=>this.logger.info("Error Connecting"))
 
   }
 
@@ -27,11 +29,11 @@ class MongoDB{
 
   registerEvents(){
     this.connection()
-      .on('connected',()=>console.log("db::connected"))
+      .on('connected',()=>this.logger.info("db::connected"))
     this.connection()
-      .on('error', (err)=>console.log("db::error", err))
+      .on('error', (err)=>this.logger.error("db::error", err))
     this.connection()
-      .on('disconnected', ()=>console.log("\ndb::disconnected"))
+      .on('disconnected', ()=>this.logger.critical("\ndb::disconnected"))
     process.on('SIGINT',()=> this.close())
   }
 
@@ -40,7 +42,7 @@ class MongoDB{
       await this.connection().close()
     }
     catch(err){
-      console.log(err)
+      this.logger.error(err)
     }
     process.exit()
   }

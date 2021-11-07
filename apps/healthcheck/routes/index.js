@@ -3,10 +3,10 @@
 const { Router } = require('express')
 const router = Router()
 
-const healthCheck = require('../controllers')
+const HealthCheckController = require('../controllers')
 
-router.use('/ping', healthCheck.ping)
-router.use('/healthcheck', healthCheck.healthcheck)
-router.use('/get-config', healthCheck.getConfig)
+router.get('/ping', HealthCheckController.ping)
+router.get('/healthcheck', HealthCheckController.healthcheck)
+router.get('/get-config', HealthCheckController.getConfig)
 
 module.exports = router

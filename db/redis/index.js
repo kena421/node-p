@@ -1,9 +1,11 @@
+const logger = require('lib/logger');
 const redis = require('redis');
 
 class Redis{
   constructor(connectionParams){
     this._db = redis;
     this._connectionParams = connectionParams;
+    this.logger = logger
   }
 
   setup(){
@@ -17,13 +19,13 @@ class Redis{
 
   registerEvents(){
     this.client
-      .on('error', err=>console.log('Error ' + err));
+      .on('error', err=>this.logger.error('Error ' + err));
     this.client
-      .on('connect',()=>console.log('redis::connected'))
+      .on('connect',()=>this.logger.info('redis::connected'))
     this.client
-      .on('reconnecting', ()=>console.log('redis::reconecting'))
+      .on('reconnecting', ()=>this.logger.error('redis::reconecting'))
     this.client
-      .on('end', ()=>console.log('redis::end'))
+      .on('end', ()=>this.logger.error('redis::end'))
   }
 
   getClient(){

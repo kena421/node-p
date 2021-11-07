@@ -1,8 +1,9 @@
-const { Router } = require('express')
-const router = Router()
+const router = require('express').Router()
 
-const notFound = require('../post/not_found')
+const notFound = require('./not_found');
+const errorMiddleware = require('./error');
 
 router.use(notFound);
+router.use(errorMiddleware)
 
 module.exports = router;
